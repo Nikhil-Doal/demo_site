@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { CouponInput } from "@/components/CouponInput";
 import { OrderSummary } from "@/components/OrderSummary";
 import { ShippingForm } from "@/components/ShippingForm";
 import { useCart, useCartLines } from "@/hooks/useCart";
@@ -86,6 +87,7 @@ export default function CheckoutPage() {
 
         <div>
           <OrderSummary lines={lines} totals={totals} />
+          <CouponInput />
           <button
             type="button"
             data-testid="place-order"

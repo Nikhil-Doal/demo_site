@@ -1,13 +1,14 @@
 import Image from "next/image";
 import type { CartLine } from "@/hooks/useCart";
 import type { CartTotals } from "@/hooks/useCartTotal";
+import { formatPrice } from "@/lib/money";
 
 type OrderSummaryProps = {
   lines: CartLine[];
   totals: CartTotals;
 };
 
-const formatAmount = (cents: number) => `$${(cents / 100).toFixed(2)}`;
+const formatAmount = (cents: number) => formatPrice(cents, 0);
 
 export function OrderSummary({ lines, totals }: OrderSummaryProps) {
   return (
